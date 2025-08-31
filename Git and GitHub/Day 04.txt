@@ -29,6 +29,8 @@ To see the number of all branches (local and remote) ----> git branch -a |wc -l
 
 => Branch Merging from Local to Local
 
+git merge <branch_name>
+
 => GIT REBASE
 It is used to add files from one branch to another files
 
@@ -36,6 +38,7 @@ Merge Vs Rebase
 Merge will show files, rebase will not show
 
 => Merge Conflict
+
 
 
 
