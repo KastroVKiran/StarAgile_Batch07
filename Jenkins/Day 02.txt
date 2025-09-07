@@ -119,6 +119,7 @@ sudo systemctl start jenkins
 sudo systemctl status jenkins
 
 2)  add important plugins
+deploy to contanier
 
 3) tomcat confegation
 sudo wget --> tomcat 9 downlod link
@@ -131,11 +132,12 @@ cd ..
 
 5) a) make confegation of port number
 conf/ -> vi server.xml -> cheng cnnector port to 8080 to other 4 digit number
-conf/ -> tomact-server.xml -> <role rolename="manager-gui" />
-                              <user username="tomcat" password="tomcat" roles="manager-gui" />
-                              <role rolename="admin-gui" />  
-                              <role rolename="manager-script" />
-                              <user username="admin" password="admin" roles="manager-gui,admin-gui,manager-script"/>
+conf/ -> tomact-server.xml ->
+ <role rolename="manager-gui" />
+ <user username="tomcat" password="tomcat" roles="manager-gui" />
+ <role rolename="admin-gui" />  
+ <role rolename="manager-script" />
+ <user username="admin" password="admin" roles="manager-gui,admin-gui,manager-script"/>
 b) go to main directory
 cd webapps -> cd manager -> cd META-INF -> vi context.xml -> allow ".*"
 
@@ -154,6 +156,7 @@ add Build Steps  -> clean package
 
 
  
+
 
 
 
