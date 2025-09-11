@@ -8,6 +8,7 @@
 	Create a folder
 	Open git bash terminal
 	Initialize the Git
+    git init
 	Create Files
 	Write the content inside the files
 	Add the files to the staging area
@@ -17,7 +18,7 @@
 => 
 Create a folder
 Open git bash terminal
-Initialize the Git
+Initialize the Git  -> git init
 Create Files
 git status ---> will let you know what is the status of a file
 git add . ----> will add all the files to the staging area
@@ -58,6 +59,7 @@ e7e0f15 added 4th line
 
 
 git restore
+
 
 
 

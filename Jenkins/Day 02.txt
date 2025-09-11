@@ -102,6 +102,64 @@ JENKINS_URL/job/trigger-remotely/build?token=TOKEN_NAME
 16. Jenkins Freestyle Project 
 https://github.com/KastroVKiran/tomcat-app-kastro.git
 
+---------------------------------------------------------------------------------------------------------------------
+
+How to uplod Jenkins Freestyle Project  
+
+1) connect ec2 in Jenkins 
+
+sudo dnf update -y
+sudo dnf install java-17-amazon-corretto-devel -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf install jenkins -y
+sudo systemctl daemon-reload
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+2)  add important plugins
+deploy to contanier
+
+3) tomcat confegation
+sudo wget --> tomcat 9 downlod link
+tar -xvf extract tor file
+
+4) start the tomcat server
+go to bin 
+./startup.sh
+cd ..
+
+5) a) make confegation of port number
+conf/ -> vi server.xml -> cheng cnnector port to 8080 to other 4 digit number
+conf/ -> tomact-server.xml ->
+ <role rolename="manager-gui" />
+ <user username="tomcat" password="tomcat" roles="manager-gui" />
+ <role rolename="admin-gui" />  
+ <role rolename="manager-script" />
+ <user username="admin" password="admin" roles="manager-gui,admin-gui,manager-script"/>
+b) go to main directory
+cd webapps -> cd manager -> cd META-INF -> vi context.xml -> allow ".*"
+
+then -> ./shutdown.sh
+         ./startup.sh
+
+go to ec2 and inbound rule -> you change the port 
+
+Go to jecins
+and add git hub url
+
+
+add git url
+add Build Steps  -> clean package
+**/*.war
+
+
+ 
+
+
+
+
 
 
 
