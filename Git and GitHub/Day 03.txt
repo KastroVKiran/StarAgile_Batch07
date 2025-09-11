@@ -1,6 +1,8 @@
 => GIT RESTORE
 If you want to recover a deleted file we will use git restore command
-Note: You should know which file was deleted
+Note: You should know which file was deleted  
+
+deleted the file - git rm <file_name>
 
 Scenario 1: Deleted but not staged
 git restore <file_name>
@@ -85,6 +87,7 @@ GIT PULL - git pull will pull only the changes that are available in the remote 
 => FORKING A REPO
 If you want to get the repo from one GitHub account to another GitHub account, then we can do fork
 When we do fork automatically the changes made by owner will automatically sync to your repo
+
 
 
 
