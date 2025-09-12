@@ -60,10 +60,9 @@ Generally we have 2 types of repos;
 
 Every repo. will have an unique repo URL
 The use of the URL is to access the repo from local to remote and remote to local
-https://github.com/Rajan-Kumar-01/public-repo-demo.git
 
 => Get the code available in remote repo to local
-git clone <Repo URL>
+-> git clone <Repo URL>
 Whenever we clone a remote repo, a .git folder will be available by default
 By default when we create a GitHub repo, a branch gets created which is known as "main"
 When we clone the remote repo to local, the main branch will be visible at the end of the command terminal
@@ -87,6 +86,7 @@ GIT PULL - git pull will pull only the changes that are available in the remote 
 => FORKING A REPO
 If you want to get the repo from one GitHub account to another GitHub account, then we can do fork
 When we do fork automatically the changes made by owner will automatically sync to your repo
+
 
 
 
