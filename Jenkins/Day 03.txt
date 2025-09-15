@@ -171,7 +171,33 @@ Deploy to Tomcat
 
 
 
+pipeline {
+    agent any
+    
+    tools {
+        maven 'maven3'
+    }
 
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git 'https://github.com/KastroVKiran/Netflix-Pipeline-Project.git'
+            }
+        }
+        stage('Maven Packaging') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+        stage('Tomcat Deployment') {
+            steps {
+                sh 'sudo cp target/NETFLIX-1.2.2.war /root/apache-tomcat-9.0.108/webapps'
+            }
+        }
+    }
+}
+
+add parmithion one sudo visudo 
 
 
 
