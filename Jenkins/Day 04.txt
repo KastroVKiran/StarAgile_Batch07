@@ -103,4 +103,65 @@ pipeline {
 
 
 RBAC
+
 Final Project
+
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+ Master and Slave Architecture
+
+Step 4: Create Pipeline Job
+Repo URL: https://github.com/KastroVKiran/Hotstar-App.git
+
+step by step 
+
+Step 1: 
+Master -> hostnamectl set-hostname master -> sudo -i
+
+worker -> hostnamectl set-hostname worker1 -> sudo -i
+
+worker -> hostnamectl set-hostname worker2 -> sudo -i
+
+Step 2:
+in worker1 and worker2  
+sudo yum install java-17-amazon-corretto-devel maven git -y
+
+Step 3: Configure Workers in the Jenkins UI
+
+worker1
+Build executor status -> now Node -> name -> remote root directory - /tmp -> labels - (name)  ->  launch method - ssh -> host -> ec2 private IP -> 
+create ssh credential -> private IP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
