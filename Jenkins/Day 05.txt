@@ -14,6 +14,119 @@ SonarQube - Ubuntu 24.04 AMI, t2.medium, 30 GB
 Nexus - Ubuntu 24.04 AMI, t2.medium, 30 GB
 Tomcat - Amazon Linux 2023 6.1 AMI, t2.micro, 30 GB
 
+-------------------------------------------------------------
+-: Jenkins Final Project 
+------------------------------------------------------------
+
+Jenkins - Amazon Linux 2023 6.1 AMI, t2.medium, 30 GB
+SonarQube - Ubuntu 24.04 AMI, t2.medium, 30 GB
+Nexus - Ubuntu 24.04 AMI, t2.medium, 30 GB -> port name 8081
+Tomcat - Amazon Linux 2023 6.1 AMI, t2.micro, 30 GB
+
+
+Step by Step 
+
+command -> sudo su -> cd -> upadate -y -> hostnamectl set-hostname (server name) -> sudo -i -> 
+
+jankins connect -> 
+
+Jenkins Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sudo dnf update -y
+sudo dnf install java-17-amazon-corretto-devel -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+sudo dnf install jenkins -y
+sudo systemctl daemon-reload
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+
+Tomcat -> 
+
+SonarQube -> |
+nexus  ->    V
+
+Docker Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Lets setup sonar server using Docker (this is the simplest way)
+$ sudo apt install docker.io
+
+#Lets give permissions to run docker
+$ sudo chmod 666 /var/run/docker.sock
+
+SonarQube Installation
+docker run -d --name sonarqube-container -p 9000:9000 sonarqube:lts-community
+
+
+Nexus Installation
+docker run -d -p 8081:8081 --name nexus-container sonatype/nexus3
+
+Username and Password for SonarQube is "admin"
+Username for Nexus is "admin" and password will be available in "admin.password" file
+
+login in nexus
+in nexus -> docker ps -> docker exec -it <ContainerID> /bin/bash -> cd sonatype-work-> cd nexus3/ -> ls -> cat admin.password 
+
+plugins  -> pipeline stage view 
+            deploy to contnar
+            nexus artifact uploder
+            sonarqube scanner
+            sonar quality gates 
+            s3 publisher
+            maven intrgration
+
+mamage jenkins -> securty -> credentials -> golbal -> username with password 
+
+
+manage jaenkins -> tools -> maven instaletion -> 
+pipeline {
+    agent any
+    tools {
+        maven 'maven3'
+    }
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git 'https://github.com/KastroVKiran/Hotstar-App.git'
+            }
+        }
+        stage('Maven Compilation') {
+            steps {
+                sh 'mvn compile'
+            }
+        }
+        stage('Maven Testing') {
+            steps {
+                sh 'mvn test'
+            }
+        }
+        stage('Maven Packaging') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+    }
+}
+
+
+
+            
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -216,4 +329,5 @@ stage('SonarQube Scanning') {
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
                 }
             }
+
         }
