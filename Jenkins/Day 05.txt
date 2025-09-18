@@ -77,43 +77,43 @@ plugins  -> pipeline stage view
             maven intrgration
 
 mamage jenkins -> securty -> credentials -> golbal -> username with password 
+pipline 1
 
+pipline 2
 
-manage jaenkins -> tools -> maven instaletion -> 
-pipeline {
-    agent any
-    tools {
-        maven 'maven3'
-    }
-
-    stages {
-        stage('Git Checkout') {
-            steps {
-                git 'https://github.com/KastroVKiran/Hotstar-App.git'
-            }
-        }
-        stage('Maven Compilation') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
-        stage('Maven Testing') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Maven Packaging') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-    }
-}
-
-
-
+criat iam rola for s3 backet 
             
-  
+mamage jenkins -> system   -> s3 -> 
+
+piplie for s3 3
+
+
+step -: sonarQube 
+
+Create project -> manually -> 
+
+make tokens -> adminstration -> security -> users -> token 4 dot 
+jenkins -> manage jenkins -> crdentials ->  global -> secret test 
+manage jenkins -> system -> sonarqube -> enviroment -> add install ->
+
+ j -> tools -> sonarQube scanner installation -> 
+
+pipline 4 -> with sonarqube prepare sonarqube scanner enviroment -> sQstage 
+
+
+nexus -> setting ->  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -331,3 +331,4 @@ stage('SonarQube Scanning') {
             }
 
         }
+
